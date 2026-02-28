@@ -45,7 +45,7 @@ public class TaskManager {
 		}
 	}
 	
-	public void saveTaskFile(String filename) {
+	public void saveTaskFile() {
 		try(BufferedWriter writer = new BufferedWriter(new FileWriter(this.filename))){
 			for (Task t : tasks) {
 				writer.write(t.toString() + "\n");

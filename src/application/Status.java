@@ -1,8 +1,8 @@
-package com.ismael.taskmanager;
+package application;
 
 public enum Status {
 	
-	PEDING,
+	PENDING,
 	IN_PROGRESS,
 	COMPLETED;
 

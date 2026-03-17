@@ -1,7 +1,7 @@
-package com.ismael.taskmanager;
+package application;
 
 public class Task {
-	
+
 	private String description;
 	private Priority priority;
 	private Status status;
@@ -38,7 +38,7 @@ public class Task {
 
 	@Override
 	public String toString() {
-		return description + "; " + priority + "; " + status + ";";
+		return description + "; " + priority + "; " + status;
 	}
-
+	
 }

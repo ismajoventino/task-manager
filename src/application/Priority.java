@@ -1,9 +1,9 @@
-package com.ismael.taskmanager;
+package application;
 
 public enum Priority {
-	
+
 	LOW,
 	MEDIUM,
 	HIGH;
-
+	
 }

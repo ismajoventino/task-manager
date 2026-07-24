@@ -44,11 +44,9 @@ public class Main {
 				        System.out.println("DESCRIPTION: ");
 				        String description = scan.nextLine();
 				        System.out.println("PRIORITY (LOW/MEDIUM/HIGH): ");
-				        String priorityText = scan.nextLine();
+				        String priorityText = scan.nextLine().replace(" ", "_").toUpperCase();
 				        System.out.println("STATUS (PENDING/IN_PROGRESS/COMPLETED): ");
-				        String statusText = scan.nextLine();
-
-				        priorityText = priorityText.replace(" ", "_").toUpperCase();
+				        String statusText = scan.nextLine().replace(" ", "_").toUpperCase();
 				        
 				        Priority priority = Priority.valueOf(priorityText.toUpperCase());
 				        Status status = Status.valueOf(statusText.toUpperCase());

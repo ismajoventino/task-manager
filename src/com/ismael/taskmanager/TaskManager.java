@@ -24,10 +24,21 @@ public class TaskManager {
 		this.tasks.add(newTask);
 		
 	}
-	
-	public void markCompleted(String descriptionText, int index) throws NoSuchElementException{
+
+	public void markCompleted(int index) throws NoSuchElementException{
 		for(Task t : tasks) {
-			if(t.getDescription().equalsIgnoreCase(descriptionText) || tasks.indexOf(t) == index) {
+			if(tasks.indexOf(t) == index) {
+				t.setStatus(Status.COMPLETED);
+				return;
+			}
+		}
+		
+		throw new NoSuchElementException("Task not found.");
+	}
+	
+	public void markCompleted(String descriptionText) throws NoSuchElementException{
+		for(Task t : tasks) {
+			if(t.getDescription().equalsIgnoreCase(descriptionText)) {
 				t.setStatus(Status.COMPLETED);
 				return;
 			}

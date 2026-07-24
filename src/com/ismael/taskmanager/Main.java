@@ -61,11 +61,38 @@ public class Main {
 				
 				case 2 -> {
 				    try{
-				        System.out.println("Enter task description OR index (-1 to skip): ");
-				        String description = scan.nextLine();
-				        
-				        taskManager.markCompleted(description, -1);
-				        System.out.println("Task marked as completed!");
+						
+						byte option = 0;
+						
+						do {
+							System.out.println("=== COMPLETE TASK ===");
+							System.out.println("1. By Description");
+							System.out.println("2. By Index");
+							System.out.println("0. Back to main menu");
+							System.out.print("Choose an option: ");
+							option = scan.nextByte();
+							scan.nextLine();
+
+							switch(option){
+								case 1 -> {
+									System.out.println("Enter task description: ");
+				        			String description = scan.nextLine();
+									
+									taskManager.markCompleted(description);
+									System.out.println("Task marked as completed!");
+								}
+									
+								case 2 -> {
+									System.out.println("Enter task index: ");
+				        			int index = scan.nextInt();
+									
+									taskManager.markCompleted(index);
+									System.out.println("Task marked as completed!");
+								}
+	
+							}
+							
+						} while (option != 0);
 				    }
 				    catch(NoSuchElementException e) {
 				        System.out.println("ERROR: " + e.getMessage());

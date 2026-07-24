@@ -125,9 +125,37 @@ public class Main {
 				
 				case 6 -> {
 					try {
-						System.out.println("DESCRIPTION: ");
-						String description = scan.nextLine();
-						taskManager.deleteTask(description);
+
+						byte option = 0;
+						
+						do {
+							System.out.println("=== DELETE TASK ===");
+							System.out.println("1. By Description");
+							System.out.println("2. By Index");
+							System.out.println("0. Back to main menu");
+							System.out.print("Choose an option: ");
+							option = scan.nextByte();
+							scan.nextLine();
+
+							switch(option){
+								case 1 -> {
+									System.out.println("Enter task description: ");
+				        			String description = scan.nextLine();
+									
+									taskManager.deleteTask(description);
+									System.out.println("Task deleted successfully!");
+								}
+									
+								case 2 -> {
+									System.out.println("Enter task index: ");
+				        			int index = scan.nextInt();
+									
+									taskManager.deleteTask(index);
+									System.out.println("Task deleted successfully!");
+								}
+							}
+							
+						} while (option != 0);
 					}
 					catch(NoSuchElementException e) {
 						System.out.println("ERROR: " + e.getMessage());

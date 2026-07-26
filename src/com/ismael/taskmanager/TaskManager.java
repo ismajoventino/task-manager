@@ -92,6 +92,14 @@ public class TaskManager {
 		}
 		
 	}
+
+	public void deleteTask(int index) throws NoSuchElementException{
+	    if(index >= 0 && index < tasks.size()){
+			tasks.remove(index);
+		} else {
+			throw new NoSuchElementException("Task not found at index: " + index);
+		}
+	}
 	
 	public void deleteTask(String descriptionText) throws NoSuchElementException{
 	    boolean removed = tasks.removeIf(t -> t.getDescription().equalsIgnoreCase(descriptionText));

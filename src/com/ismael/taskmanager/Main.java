@@ -163,12 +163,36 @@ public class Main {
 				}
 				
 				case 7 -> {
+
 					try {
-						System.out.println("STATUS: ");
-						String status =  scan.nextLine();
-						taskManager.filterByStatus(status);
+
+						byte option = 0;
+						
+						do {
+							System.out.println("=== FILTER BY STATUS ===");
+							System.out.println("1. Pending");
+							System.out.println("2. In Progress");
+							System.out.println("3. Completed");
+							System.out.println("0. Back to main menu");
+							System.out.print("Choose an option: ");
+							option = scan.nextByte();
+							scan.nextLine();
+
+							switch(option){
+								case 1 -> {
+									taskManager.filterByStatus(Status.PENDING);
+								}
+								case 2 -> {
+									taskManager.filterByStatus(Status.IN_PROGRESS);
+								}
+								case 3 -> {
+									taskManager.filterByStatus(Status.COMPLETED);
+								}
+							}
+							
+						} while (option != 0);
 					}
-					catch (NoSuchElementException e) {
+					catch(NoSuchElementException e) {
 						System.out.println("ERROR: " + e.getMessage());
 					}
 				}

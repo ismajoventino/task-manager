@@ -2,7 +2,7 @@ package com.ismael.taskmanager;
 
 public enum Status {
 	
-	PEDING,
+	PENDING,
 	IN_PROGRESS,
 	COMPLETED;
 

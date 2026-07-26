@@ -163,7 +163,6 @@ public class Main {
 				}
 				
 				case 7 -> {
-
 					try {
 
 						byte option = 0;
@@ -199,9 +198,31 @@ public class Main {
 				
 				case 8 -> {
 					try {
-						System.out.println("PRIORITY: ");
-						String priority =  scan.nextLine();
-						taskManager.filterByPriority(priority);
+						byte option = 0;
+						
+						do {
+							System.out.println("=== FILTER BY PRIORITY ===");
+							System.out.println("1. Low");
+							System.out.println("2. Medium");
+							System.out.println("3. Hight");
+							System.out.println("0. Back to main menu");
+							System.out.print("Choose an option: ");
+							option = scan.nextByte();
+							scan.nextLine();
+
+							switch(option){
+								case 1 -> {
+									taskManager.filterByPriority(Priority.LOW);
+								}
+								case 2 -> {
+									taskManager.filterByPriority(Priority.MEDIUM);
+								}
+								case 3 -> {
+									taskManager.filterByPriority(Priority.HIGH);
+								}
+							}
+							
+						} while (option != 0);
 					}
 					catch (NoSuchElementException e) {
 						System.out.println("ERROR: " + e.getMessage());

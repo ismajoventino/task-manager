@@ -109,9 +109,8 @@ public class TaskManager {
 	    }
 	}
 	
-	public void filterByStatus(String statusText) throws NoSuchElementException{
+	public void filterByStatus(Status status) throws NoSuchElementException{
 		int flag = 0;
-		Status status = Status.valueOf(statusText.toUpperCase());
 		
 		for(Task t : tasks) {
 			if(t.getStatus() == status) {
@@ -127,9 +126,8 @@ public class TaskManager {
 		return;
 	}
 	
-	public void filterByPriority(String priorityText) throws NoSuchElementException{
+	public void filterByPriority(Priority priority) throws NoSuchElementException{
 		int flag = 0;
-		Priority priority = Priority.valueOf(priorityText.toUpperCase());
 		
 		for(Task t : tasks) {
 			if(t.getPriority() == priority) {
